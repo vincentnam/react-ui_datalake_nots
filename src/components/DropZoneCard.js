@@ -101,7 +101,7 @@ export default function DropZoneCard (props){
             }}
         </Dropzone>
         <View >
-            <Button onClick={send_click} variant="contained" color="primary">
+            <Button onClick={send_click} variant="contained" color="primary" style={{backgroundColor:"#F16E10"}}>
                 Téleverser - Upload
             </Button>
         </View>

@@ -1,4 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Build and run the docker container on localhost :
+
+    docker build -t react_ui .
+    docker run -it -p 3000:3000 react_ui
 
 ## Available Scripts
 
