@@ -8,7 +8,7 @@ import * as d3 from "d3";
 
 
 
-export default function PieChart(props){
+export default function D3Graph(props){
 
     const d3Container = useRef(null);
     const initialBooks = [
@@ -142,7 +142,7 @@ export default function PieChart(props){
 
 
     return        <div
-        className="d3-component"
+        className="d3-graph"
 
         ref={d3Container}
     />
