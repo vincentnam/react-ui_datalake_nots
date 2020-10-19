@@ -49,6 +49,7 @@
     "@material-ui/icons": "^4.9.1",
     "clsx": "^1.1.1",
     "d3-array": "^2.7.1",
-    "d3-selection": "^2.0.0"
+    "d3-selection": "^2.0.0",
+    "openstack-swift-client": "^2.1.0"
   }
 }
