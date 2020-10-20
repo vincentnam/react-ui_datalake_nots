@@ -7,9 +7,11 @@ import {ListGroup} from "react-bootstrap";
 import Dropzone, {useDropzone} from "react-dropzone";
 import {View} from "react-native-web";
 import axios, { post } from 'axios';
+import warnAboutDeprecatedESMImport from "react-router-dom/es/warnAboutDeprecatedESMImport";
 
 
-const api_rest = "http://141.115.103.30:8080"
+const api_rest = "http://127.0.0.1:5000"
+const swift_url = "http://141.115.103.30:8080"
 const upload_file_url="/upload_file"
 const auth_url = "/auth/v1.0"
 const user = "test:tester"
@@ -17,36 +19,47 @@ const password = "testing"
 function upload_file(file){
     //https://bezkoder.com/react-file-upload-axios/
     const formData = new FormData();
-    const SwiftClient = require("openstack-swift-client");
-    formData.append('file',file);
-    var myHeaders = new Headers({
-        "X-Storage-User": user,
-        "X-Storage-Pass": password,
-        "Access-Control-Allow-Origin": "*"
-    });
-    var myInit = {
-        method: "GET",
-        headers: myHeaders
-    }
-    // const config = {
-    //     // headers: {
-    //     //     'content-type': 'multipart/form-data'
-    //     // }
-    //     headers: {'Content-Type':'application/x-www-form-urlencoded'}
-    // }
-    return  axios.get(api_rest+auth_url,{headers:{
-                "X-Storage-User": user,
-                "X-Storage-Pass": password,
-                "Access-Control-Allow-Origin": "*"
+    // const SwiftClient = require("openstack-swift-client");
+    // let client = new SwiftClient(new SwiftClient.SwiftAuthenticator(swift_url + auth_url, user,password));
+    //
+    var axiosConf = {
+        headers:{
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers":" Origin, Content-Type, X-Auth-Token"
         }
     }
-        ).then(function (response) {
-        console.log(response)
-        return response.blob()
-    } ).then(function (blob){
-        var objectURL = URL.createObjectURL(blob)
-        console.log(objectURL)
-    })
+    formData.append('file',file);
+    // return client.list();
+    return axios.post(api_rest+upload_file_url,formData, axiosConf)
+    // var myHeaders = new Headers({
+    //     "X-Storage-User": user,
+    //     "X-Storage-Pass": password,
+    //     "Access-Control-Allow-Origin": "*"
+    // });
+    // var myInit = {
+    //     method: "GET",
+    //     headers: myHeaders
+    // }
+    // // const config = {
+    // //     // headers: {
+    // //     //     'content-type': 'multipart/form-data'
+    // //     // }
+    // //     headers: {'Content-Type':'application/x-www-form-urlencoded'}
+    // // }
+    // return  axios.get(api_rest+auth_url,{headers:{
+    //             "X-Storage-User": user,
+    //             "X-Storage-Pass": password,
+    //             "Access-Control-Allow-Origin": "*"
+    //     }
+    // }
+    //     ).then(function (response) {
+    //     console.log(response)
+    //     return response.blob()
+    // } ).then(function (blob){
+    //     var objectURL = URL.createObjectURL(blob)
+    //     console.log(objectURL)
+    // })
     // return post(api_rest + upload_file_url, formData, config)
 
 }
