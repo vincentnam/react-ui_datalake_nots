@@ -14,7 +14,7 @@ COPY package-lock.json ./
 RUN npm install --silent
 RUN npm install react-scripts@3.4.1 -g --silent
 RUN npm install d3 -g --silent
-RUN yarn add @material-ui/core
+RUN npm install --save @material-ui/core
 ENV PATH /app/node_modules/.bin:$PATH
 # add app
 
