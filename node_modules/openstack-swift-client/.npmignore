@@ -1,0 +1,6 @@
+node_modules
+swift-account.json
+.vs
+.vscode
+.idea
+test/credentials*.json
