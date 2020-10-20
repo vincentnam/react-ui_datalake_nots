@@ -8,9 +8,9 @@ WORKDIR /app
 
 
 # install app dependencies
-
-COPY package.json ./
-COPY package-lock.json ./
+COPY . ./
+#COPY package.json ./
+#COPY package-lock.json ./
 RUN npm install --silent
 RUN npm install react-scripts@3.4.1 -g --silent
 RUN npm install d3 -g --silent
@@ -18,6 +18,6 @@ RUN npm install --save @material-ui/core
 ENV PATH /app/node_modules/.bin:$PATH
 # add app
 
-COPY . ./
+
 # start app
 CMD ["npm", "start"]
