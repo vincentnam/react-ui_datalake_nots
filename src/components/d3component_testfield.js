@@ -17,7 +17,7 @@ export default function D3Test(props){
 
     // const [books, setBooks] = useState(initialBooks)
     // specify upload params and url for your files
-    const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' }
+    const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' , } }
 
     // called every time a file's `status` changes
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
