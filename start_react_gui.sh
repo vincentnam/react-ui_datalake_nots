@@ -1,5 +1,4 @@
 #!/bin/bash
-#PATH_REACT_FOLDER=/datalake/frontend/
-PATH_REACT_FOLDER=/data/python-project/
+PATH_REACT_FOLDER=${pwd}
 sudo docker build -t react_gui .
-sudo docker run -p 3000:3000 -v ${PATH_REACT_FOLDER}/react-ui_datalake_nots/:/app/ -it react_gui
+sudo docker run -p 3000:3000 -v ${PATH_REACT_FOLDER}:/app/ -it react_gui
