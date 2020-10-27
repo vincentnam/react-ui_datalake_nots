@@ -28,7 +28,7 @@ export default function D3Test(props){
         headers:
             {
                 "Content-Type":"multipart/form-data",
-                "mode":"cors"}} }
+                }} }
 
     // called every time a file's `status` changes
 
