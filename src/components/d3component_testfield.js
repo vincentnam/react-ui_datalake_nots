@@ -17,8 +17,11 @@ export default function D3Test(props){
 
     // const [books, setBooks] = useState(initialBooks)
     // specify upload params and url for your files
-    const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' ,headers: {"Access-Control-Allow-Origin": "*",
-            'Access-Control-Allow-Headers':"*", "Access-Control-Allow-Methods": "*", "Content-Type":"multipart/form-data", "mode":"no-cors"}} }
+    const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' ,
+        headers:
+            {
+                "Content-Type":"multipart/form-data",
+                "mode":"cors"}} }
 
     // called every time a file's `status` changes
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }

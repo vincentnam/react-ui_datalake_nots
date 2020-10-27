@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
-
+import 'react-dropzone-uploader/dist/styles.css'
 import DropZoneCard from './components/DropZoneCard'
 import Dashboard from "./components/Dashboard";
 import Testfield from "./components/Testfield";
