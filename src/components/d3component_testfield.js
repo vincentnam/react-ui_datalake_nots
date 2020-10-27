@@ -24,7 +24,7 @@ export default function D3Test(props){
     }
     // const [books, setBooks] = useState(initialBooks)
     // specify upload params and url for your files
-    const getUploadParams = ({ meta }) => { return { url: 'http://141.115.103.34:8080/upload_file' ,
+    const getUploadParams = ({ meta }) => { return { url: 'http://141.115.103.34:5000/upload_file' ,
         headers:
             {
                 "Content-Type":"multipart/form-data",
