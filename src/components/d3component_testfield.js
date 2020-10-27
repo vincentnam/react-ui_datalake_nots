@@ -28,7 +28,8 @@ export default function D3Test(props){
         headers:
             {
                 "Content-Type":"multipart/form-data",
-                "Access-Control-Allow-Origin": "*"
+
+
                 }} }
 
     // called every time a file's `status` changes
