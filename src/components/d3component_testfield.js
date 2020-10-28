@@ -20,8 +20,7 @@ export default function D3Test(props){
     const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' ,
         headers:
             {
-                "Content-Type":"multipart/form-data",
-                "mode":"cors"}} }
+                "Content-Type":"multipart/form-data"}} }
 
     // called every time a file's `status` changes
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
