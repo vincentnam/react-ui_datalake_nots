@@ -14,34 +14,23 @@ import Dropzone from 'react-dropzone-uploader'
 export default function D3Test(props){
 
     const d3Container = useRef(null);
-    const Preview = ({ meta }) => {
-        const { name, percent, status } = meta
-        return (
-            <span style={{ alignSelf: 'flex-start', margin: '10px 3%', fontFamily: 'Helvetica' }}>
-      {name}, {Math.round(percent)}%, {status}
-    </span>
-        )
-    }
+
     // const [books, setBooks] = useState(initialBooks)
     // specify upload params and url for your files
-    const getUploadParams = ({ meta }) => { return { url: 'http://141.115.103.34:5000/upload_file' ,
+    const getUploadParams = ({ meta }) => { return { url: 'http://127.0.0.1:5000/upload_file' ,
         headers:
             {
                 "Content-Type":"multipart/form-data",
-
-
-                }} }
+                "mode":"cors"}} }
 
     // called every time a file's `status` changes
+    const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
 
-
-
+    // receives array of files that are done uploading when submit button is clicked
     const handleSubmit = (files, allFiles) => {
         console.log(files.map(f => f.meta))
         allFiles.forEach(f => f.remove())
     }
-    // receives array of files that are done uploading when submit button is clicked
-
     useEffect(
         () => {
             // return (
@@ -63,13 +52,11 @@ export default function D3Test(props){
 
 
 
-    return                               <Dropzone
+    return                       <Dropzone
         getUploadParams={getUploadParams}
+        onChangeStatus={handleChangeStatus}
         onSubmit={handleSubmit}
-        PreviewComponent={Preview}
-        inputContent="Drop Files (Custom Preview)"
-        disabled={files => files.some(f => ['preparing', 'getting_upload_params', 'uploading'].includes(f.meta.status))}
+        accept="*"
     />
 }
-
 
