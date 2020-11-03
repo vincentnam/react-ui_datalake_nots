@@ -21,7 +21,7 @@ export default function D3TimeSerie(props){
     useEffect(()=>{
         /* implementation heavily influenced by http://bl.ocks.org/1166403 */
         async function get_data() {
-            var data = await axios.get("http://localhost:5000/sensors_data").then(response => response.data)
+            var data = await axios.get("http://localhost:5002/sensors_data").then(response => response.data)
             console.log(data)
 
             var values = []

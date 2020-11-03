@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # equivalent to -it in docker run command (needed for react app)
+    stdin_open: true
+    container_name: react_gui
+    network_mode: host
+    #        networks:
+    #            rest-network:
+    #               aliases:
+    #                  - reverse-proxy
+    ports:
+      # 5000 / 3000 ports are the only ports open on the OSIRIM VM
+      - 3000:3000
+    volumes:
+      - ./src:/app/src
